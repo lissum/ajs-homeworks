@@ -12,7 +12,7 @@ test( 'should create correct character', () => {
     health: 100,
     level: 1,
     attack: 10,
-    defence: 40,
+    defence: 1,
   };
 
   expect( character ).toEqual( correct );
