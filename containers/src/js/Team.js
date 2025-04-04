@@ -12,7 +12,7 @@ export default class Team {
 
   addAll( ...characters ) {
     characters.forEach( character => {
-      this.members.add( character );
+      this.add( character );
     } );
   }
 
