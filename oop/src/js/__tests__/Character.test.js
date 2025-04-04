@@ -13,10 +13,13 @@ test( 'should throw error for invalid type', () => {
 
 test( 'should create character', () => {
   const character = new Character( 'Test', 'Bowman' );
+  const correct = {
+    name: 'Test',
+    type: 'Bowman',
+    health: 100,
+    level: 1,
+  }
 
-  expect( character.name ).toBe( 'Test' );
-  expect( character.type ).toBe( 'Bowman' );
-  expect( character.health ).toBe( 100 );
-  expect( character.level ).toBe( 1 );
+  expect( character ).toEqual( correct );
 } );
 

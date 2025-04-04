@@ -6,11 +6,14 @@ test( 'should throw error for invalid name length', () => {
 
 test( 'should create correct character', () => {
   const character = new Daemon( 'Test' );
+  const correct = {
+    name: 'Test',
+    type: 'Daemon',
+    health: 100,
+    level: 1,
+    attack: 10,
+    defence: 40,
+  };
 
-  expect( character.name ).toBe( 'Test' );
-  expect( character.type ).toBe( 'Daemon' );
-  expect( character.health ).toBe( 100 );
-  expect( character.level ).toBe( 1 );
-  expect( character.attack ).toBe( 10 );
-  expect( character.defence ).toBe( 40 );
+  expect( character ).toEqual( correct );
 } );

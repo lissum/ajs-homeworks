@@ -1,4 +1,4 @@
-import Magician from "./Magician";
+import Magician from "../Magician";
 
 test( 'should level up', () => {
   const character = new Magician( 'Test' );
@@ -6,10 +6,16 @@ test( 'should level up', () => {
 
   character.levelUp();
 
-  expect( character.health ).toBe( 100 );
-  expect( character.level ).toBe( 2 );
-  expect( character.attack ).toBe( 12 );
-  expect( character.defence ).toBe( 48 );
+  const correct = {
+    name: "Test",
+    type: 'Magician',
+    health: 100,
+    level: 2,
+    attack: 12,
+    defence: 48
+  }
+
+  expect( character ).toEqual( correct );
 } );
 
 test( 'should throw error for died character', () => {

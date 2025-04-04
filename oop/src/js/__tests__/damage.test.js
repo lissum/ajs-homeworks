@@ -1,4 +1,4 @@
-import Bowman from "./Bowman";
+import Bowman from "../Bowman";
 
 test( 'should throw error for invalid points', () => {
   const character = new Bowman( 'Test' );
