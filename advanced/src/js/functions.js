@@ -1,33 +1,11 @@
-export function orderByProps( obj, order ) {
-  const orderedProps      = [];
-  const alphabeticalProps = [];
-
-  for ( const prop in obj ) {
-    if ( ! obj.hasOwnProperty( prop ) ) {
-      continue;
+export function getBuffer() {
+  const data = '{"data":{"user":{"id":1,"name":"Hitman","level":10}}}';
+  return ( input => {
+    const buffer     = new ArrayBuffer( data.length * 2 );
+    const bufferView = new Uint16Array( buffer );
+    for ( let i = 0; i < input.length; i++ ) {
+      bufferView[ i ] = input.charCodeAt( i );
     }
-
-    const item = {key: prop, value: obj[ prop ]};
-
-    const index = order.indexOf( prop );
-
-    if ( index !== -1 ) {
-      orderedProps[ index ] = item;
-    }
-    else {
-      alphabeticalProps.push( item );
-    }
-  }
-
-  const filteredOrderedProps = orderedProps.filter( item => item !== undefined );
-
-  alphabeticalProps.sort( ( a, b ) => a.key.localeCompare( b.key ) );
-
-  return [...filteredOrderedProps, ...alphabeticalProps];
-}
-
-export function extractSpecialAttacks( {special} ) {
-  return special.map( ( {id, name, icon, description = 'Описание недоступно'} ) => {
-    return {id, name, icon, description};
-  } );
+    return buffer;
+  } )( data );
 }
